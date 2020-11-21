@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>update User</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+
+<body>
+<div id="wrap" style="background-color: #ADBECB">
+    <div id="top_content">
+        <div id="header" th:replace="user::header">
+            <div id="rightheader">
+                <p>
+                    <br/>
+                </p>
+            </div>
+            <div id="topheader">
+                <h1 id="title">
+                    <a href="#"></a>
+                </h1>
+            </div>
+            <div id="navigation">
+            </div>
+        </div>
+        <div id="content">
+            <p id="whereami">
+            </p>
+            <h1>
+                更新用户：
+            </h1>
+            <form th:action="@{/update}" method="post">
+                <table cellpadding="0" cellspacing="0" border="0"
+                       class="form_table">
+                    <tr>
+                        <td valign="middle" align="right">
+                            id:
+                        </td>
+                        <td valign="middle" align="left">
+                            <span th:text="${user.id}"/>
+                            <input type="hidden" name="id" th:value="${user.id}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="middle" align="right">
+                            手机号码:
+                        </td>
+                        <td valign="middle" align="left">
+                            <input type="text" class="inputgri" name="mobile" th:value="${user.mobile}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="middle" align="right">
+                            密码:
+                        </td>
+                        <td valign="middle" align="left">
+                            <input type="text" class="inputgri" name="password" th:value="${user.password}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="middle" align="right">
+                            性别:
+                        </td>
+                        <td valign="middle" align="left">
+                            <input type="text" class="inputgri" name="sex" th:value="${user.sex}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="middle" align="right">
+                            出生日期:
+                        </td>
+                        <td valign="middle" align="left">
+                            <input type="text" class="inputgri" name="birthdate"
+                                   th:value="${#dates.format(user.birthdate,'YYY/MM/dd')}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="middle" align="right">
+                            地址:
+                        </td>
+                        <td valign="middle" align="left">
+                            <input type="text" class="inputgri" name="address" th:value="${user.address}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="middle" align="right">
+                            邮箱:
+                        </td>
+                        <td valign="middle" align="left">
+                            <input type="text" class="inputgri" name="email" th:value="${user.email}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="middle" align="right">
+                            用户状态:
+                        </td>
+                        <td valign="middle" align="left">
+                            <input type="text" class="inputgri" name="state" th:value="${user.state}"/>
+                        </td>
+                    </tr>
+                </table>
+                <p>
+                    <input type="submit" class="button" value="确认修改"/>
+                </p>
+            </form>
+        </div>
+    </div>
+    <div id="footer">
+        <div id="footer_bg">
+            ABC@126.com
+        </div>
+    </div>
+</div>
+</body>
+</html>

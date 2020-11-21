@@ -1,0 +1,41 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.mapper.UserMapper">
+
+
+    <!--更新用户信息-->
+    <update id="updateUser" parameterType="com.demo.entity.User">
+        update user set mobile=#{mobile},password=#{password},sex=#{sex},birthdate=#{birthdate},address=#{address},email=#{email},state=#{state},create_time=#{createTime},update_time=#{updateTime}
+        where id = #{id}
+    </update>
+
+    <!--根据id查询用户-->
+    <select id="findUserById" parameterType="long" resultType="com.demo.entity.User">
+        select * from user
+        where id = #{id}
+    </select>
+
+    <!--根据mobile查询用户-->
+    <select id="findUserByMobile" parameterType="long" resultType="com.demo.entity.User">
+        select * from user
+        where mobile = #{mobile}
+    </select>
+
+    <!--删除员工信息-->
+    <delete id="deleteUser" parameterType="long">
+        update user set state=-1
+        where id=#{id}
+    </delete>
+
+    <!--增加信息-->
+    <insert id="insertUser" keyProperty="id">
+        insert into user (mobile,password,sex,birthdate,address,email,state,create_time,update_time) values(#{mobile},#{password},#{sex},#{birthdate},#{address},#{email},#{state},#{createTime},#{updateTime})
+    </insert>
+
+    <!--查询所有 -->
+    <select id="findAllUser" resultType="com.demo.entity.User">
+        select id,mobile,password,sex,birthdate,address,email,state,create_time,update_time
+        from user where state!=-1
+    </select>
+
+
+</mapper>
